@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    background-color: rgb(113, 61, 61);
+}
+
+body {
+    header {
+        nav.navbar {
+            .container-fluid{
+                .navbar-brand:hover {
+                    transition-duration: 1s;
+                    color:rgb(2, 222, 178);
+                }
+
+            }
+
+        }
+    }
+}
+main {
+    .carousel {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        .carousel-inner {
+            .carousel-item {
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
