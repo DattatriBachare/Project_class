@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Products
+{% endblock %}
+
+
+
+
+{% block content %}
+<h1 class="my-2 text-center">More delicious items</h1>
+<section id="products">
+  <div class="album py-3 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+        {% for p in product_list %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ p.pic }}" alt="{{ p.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ p.name }} - Rs. {{ p.price }}</h5>
+              {{ p.description }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

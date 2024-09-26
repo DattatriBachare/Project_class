@@ -7,7 +7,7 @@ home
 
 {% block content %}
 <section id="home-carousel">
-  <div id="carouselExample" class="carousel slide my-1" style="height: 450px;" data-bs-ride="carousel" data-bs-interval="3000">
+  <div id="carouselExample" class="carousel slide my-1" style="height: 500px;" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="{% static 'images/carousel/4.jpg' %}" class="d-block w-100" alt="...">
@@ -30,28 +30,6 @@ home
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
-</section>
-<section id="products">
-  <div class="album py-3 bg-body-tertiary">
-    <h1 class="my-2 text-center">More delicious items</h1>
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
-        <div class="col">
-          {% for p in prods %}
-          <div class="card shadow-sm">
-            <img src="https://dodladairy.com/wp-content/uploads/2024/03/icecream-65facbd6d4ff4-1008x1024.webp" alt="">
-            <div class="card-body">
-              <div class="card-body">
-                <h4>Chocolaty Cone</h4>
-                <p class="card-text">Decadent ice cream with chocolate and hazelnuts.</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 {% endblock %}

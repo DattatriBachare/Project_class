@@ -1,10 +1,73 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 About the store 
 {% endblock %}
 
-
 {% block content %}
-This is the descasjndlakjsjdhflakjdhfslkdjfhl !!!!!!!!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .hero {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        .team-member {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-dark text-white text-center py-5">
+        <h1>About Us</h1>
+        <p>Learn more about our mission and team.</p>
+    </header>
+
+    <section class="hero text-center">
+        <div class="container">
+            <h2>Scoop the World with Joy</h2>
+            <p>At D3's, we believe that every scoop tells a story. Our mission is to create unforgettable moments through the magic of ice cream, using only the finest, all-natural ingredients. We are dedicated to crafting innovative flavors that inspire delight and ignite the senses, while fostering a sense of community and sustainability. As we aspire to become a global sensation, we aim to share our passion for joy and connection—one delicious scoop at a time. Join us on this sweet journey as we bring happiness to ice cream lovers around the world!</p>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h2 class="text-center">Meet Our Team</h2>
+        <div class="row">
+            <div class="col-md-4 team-member text-center ">
+                <img src="{% static 'images/about/3.jpg' %}" class="rounded-circle mb-2" style="max-width: 50%; height: auto;" alt="Team Member 1">
+                <h4>Dattatri Bachare</h4>
+                <p>Founder & CEO</p>
+                <p>John has over 10 years of experience in the industry and is passionate about innovation.</p>
+            </div>
+            
+            
+            <div class="col-md-4 team-member text-center">
+                <img src="{% static 'images/about/2.jpg' %}" class="rounded-circle mb-2" style="max-width: 50%; height: auto;" alt="Team Member 2">
+                <h4>Dattatri Bachare</h4>
+                <p>Chief Operating Officer</p>
+                <p>Jane ensures our operations run smoothly and efficiently.</p>
+            </div>
+            <div class="col-md-4 team-member text-center">
+                <img src="{% static 'images/about/1.jpg' %}" class="rounded-circle mb-2" style="max-width: 50%; height: auto;" alt="Team Member 3">
+                <h4>Dattatri Bachare</h4>
+                <p>Head of Marketing</p>
+                <p>Michael is responsible for our marketing strategy and brand awareness.</p>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
 {% endblock %}
