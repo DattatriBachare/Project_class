@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 html {
-    background-color: rgb(113, 61, 61);
+    background-color: rgba(2, 1, 1, 0.464);
 }
 
 body {
@@ -13,7 +13,7 @@ body {
             .container-fluid{
                 .navbar-brand:hover {
                     transition-duration: 1s;
-                    color:rgb(2, 222, 178);
+                    color:rgb(201, 208, 206);
                 }
 
             }
@@ -24,6 +24,7 @@ body {
 main {
     .carousel {
         height: 300px;
+        flex-direction: column;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -38,3 +39,5 @@ main {
         }
     }
 }
+
+  

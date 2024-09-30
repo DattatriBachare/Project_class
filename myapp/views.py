@@ -6,7 +6,7 @@ from django.views.generic import ListView, CreateView   # type: ignore
 from .models import Product
 # Create your views here.
 
-from django import forms
+from django import forms # type: ignore
 
 def home(request):
     products = Product.objects.all() # collecting all the products
