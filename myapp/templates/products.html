@@ -4,34 +4,88 @@
 {% block title %}
 Products
 {% endblock %}
+
 {% block content %}
 <style>
-  p{
+  p {
     color: black;
   }
- 
+  .read-more {
+    cursor: pointer;
+    color: blue;
+    margin-left: 5px;
+    display: inline; /* Ensure it stays inline */
+  }
+  .card-container {
+    margin: 0 auto; /* Center the container */
+    max-width: 1600px; /* Set a maximum width for better alignment */
+  }
+  .card {
+    width: 95%; /* Slightly increase the width */
+    max-width: 400px; /* Increase max width for larger cards */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+    margin: 0 auto; /* Center the card */
+  }
+  .description {
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    max-width: 70%; /* Adjust this percentage as needed */
+}
 </style>
 <section id="products">
   <h1 class="my-2 text-center">More delicious items</h1>
-  <div class="album py-3 bg-body-tertiary" >
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        {% for p in product_list %}
-        <div class="col">
-          <div class="card" style="width: 300px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);">
-            <img src="{{ p.pic }}" alt="{{ p.name }}" style="width: 100%; height: 300px; object-fit: cover;"> 
-            <div class="card-body" style="padding: 10px;">
-              <h5 class="card-title" style="font-size: 1.3rem; margin: 3px; height: 50px;">{{ p.name }} - Rs. {{ p.price }}</h5>
-              <p style="font-size: 1.1rem; overflow: hidden; text-overflow: ellipsis; white-space: wrap;">{{ p.description }}</p>
-              <button class="btn btn-primary rounded-pill px-3" type="button">Add to cart</button>
-              <button class="btn btn-success rounded-pill px-3" type="button">Buy now</button>
-            </div>
+  <div class="album py-3 bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="card-container">
+        <div class="row justify-content-center">
+          {% for p in product_list %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+              <div class="card">
+                  <img src="{{ p.pic }}" alt="{{ p.name }}" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="card-body" style="padding: 15px;"> <!-- Slightly increase padding -->
+                      <div class="d-flex justify-content-between align-items-center">
+                          <a href="{% url 'p_details' p.pk %}" class="text-decoration-none">
+                              <h5 class="card-title mb-0" style="font-size: 1.3rem;">{{ p.name }}</h5>
+                          </a>
+                          <h5 class="card-title mb-0" style="font-size: 1.3rem;">Rs. {{ p.price }}</h5>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <p class="description" id="desc-{{ forloop.counter }}">{{ p.description }}</p>
+                          <span class="read-more" onclick="toggleDescription('desc-{{ forloop.counter }}', this)">Read more</span>
+                      </div>
+                      <div>
+                          <button class="btn btn-primary rounded-pill px-3" type="button">Add to cart</button>
+                          <button class="btn btn-success rounded-pill px-3" type="button">Buy now</button>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>        
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
 </section>
-{% endblock %}
 
+<script>
+  function toggleDescription(id, element) {
+    const descriptionElement = document.getElementById(id);
+
+    if (descriptionElement.style.whiteSpace === "nowrap") {
+      descriptionElement.style.whiteSpace = "normal";
+      descriptionElement.style.overflow = "visible";
+      descriptionElement.style.textOverflow = "clip";
+      element.textContent = "Read less";  // Change text to "Read less"
+    } else {
+      descriptionElement.style.whiteSpace = "nowrap";
+      descriptionElement.style.overflow = "hidden";
+      descriptionElement.style.textOverflow = "ellipsis";
+      element.textContent = "Read more";  // Change text back to "Read more"
+    }
+  }
+</script>
+{% endblock %}
