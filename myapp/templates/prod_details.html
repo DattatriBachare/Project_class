@@ -6,5 +6,53 @@
 {% endblock %}
 
 {% block content %}
-{{ product.id }} - {{ product.name }}
+<style>
+    .prod-container{
+        margin: auto;
+        width: 60%;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        height: 500px;
+        width: auto;
+        border-radius: 5px;
+    }
+    .add-to-cart {
+        padding: 10px 20px;
+        background-color: #28a745; /* Green button */
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .add-to-cart:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+</style>
+
+
+
+
+<div class="prod-container">
+    <div class="row align-items-center">
+        <div class="col-6 prod-img">   
+            <img src="{{product.pic.url}}" alt="{{product.name}} image">
+        </div>
+        <div class="col-6 prod-description"> 
+            <div>
+                <h2>{{product.name}}</h2>
+                <p><h4>Rs. {{product.price}}</h4></p>
+                <p>{{product.description}}</p>
+            </div>
+            <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+
+
+

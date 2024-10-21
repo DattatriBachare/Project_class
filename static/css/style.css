@@ -3,41 +3,57 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
 html {
     background-color: rgba(2, 1, 1, 0.464);
 }
 
 body {
-    header {
-        nav.navbar {
-            .container-fluid{
-                .navbar-brand:hover {
-                    transition-duration: 1s;
-                    color:rgb(201, 208, 206);
-                }
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
 
+header {
+    nav.navbar {
+        .container-fluid {
+            .navbar-brand:hover {
+                transition-duration: 1s;
+                color: rgb(201, 208, 206);
             }
-
         }
     }
 }
+
 main {
     .carousel {
         height: 300px;
-        flex-direction: column;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        width: 100%; /* Ensure carousel is full width */
+        
         .carousel-inner {
             .carousel-item {
                 img {
                     width: 100%;
+                    height: auto; /* Maintain aspect ratio */
                     object-fit: cover;
                 }
             }
         }
     }
 }
+.card {
+    width: 90%; /* Adjust the card width here if needed */
+    margin: auto; /* Center the cards */
+}
 
-  
+.card-body {
+    padding: 1rem; /* Adjust padding for card body */
+}

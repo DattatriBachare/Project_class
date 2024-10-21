@@ -6,8 +6,8 @@ home
 {% endblock %}
 
 {% block content %}
-<section id="home-carousel" style="background-color: #1E3E40; padding:50px 200px 20px 200px" >
-  <div id="carouselExample" class="carousel slide" style="height: 500px; max-width: 1215px; margin: auto;" data-bs-ride="carousel" data-bs-interval="3000">
+<section id="home-carousel" style="background-color: #1E3E40; padding-top: 2px ;" >
+  <div id="carouselExample" class="carousel slide" style="height: 600px; max-width: 100%px; margin: auto;" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="{% static 'images/carousel/4.jpg' %}" class="d-block w-100" alt="...">
@@ -34,76 +34,97 @@ home
 
 
 
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4" > <!-- Use responsive columns for layout -->
-      <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s;"
-        onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-        <img src="https://cdn.theatlantic.com/thumbor/e1x2sKlZwUTKZ08vd3e-8q38nO4=/438x0:1563x1125/1080x1080/media/img/2023/04/0523_WEL_Johns_Ice_Cream_c16X9/original.png"
-          class="card-img-top" alt="">
-        <div class="card-body">
-          <p class="card-text"><h4>This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</h4></p>
+  <div class="row mx-2 px-4" >
+    <div class="col-12 col-md-6 col-lg-3 mb-4"> <!-- Adjusted to col-lg-3 for four cards in a row -->
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://cdn.theatlantic.com/thumbor/e1x2sKlZwUTKZ08vd3e-8q38nO4=/438x0:1563x1125/1080x1080/media/img/2023/04/0523_WEL_Johns_Ice_Cream_c16X9/original.png"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">A delightful treat for ice cream lovers!</h4>
+            </div>
         </div>
-      </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s;"
-        onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-        <img
-          src="https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/08/Ice-cream-sundae-hero-11.jpg"
-          class="card-img-top" alt="">
-        <div class="card-body">
-          <p class="card-text"><h4>This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</h4></p>
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/08/Ice-cream-sundae-hero-11.jpg"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">A delicious sundae that brings joy to your day!</h4>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s;"
-        onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2y-naalQNvOZ6BkhBgZwbsWBsJku3xK6XRA&s"
-          class="card-img-top" alt="">
-        <div class="card-body">
-          <p class="card-text"><h4>This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</h4></p>
-        </div>
-      </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s;"
-        onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s"
-          class="card-img-top" alt="">
-        <div class="card-body">
-          <p class="card-text"><h4>This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</h4></p>
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2y-naalQNvOZ6BkhBgZwbsWBsJku3xK6XRA&s"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">Refreshing ice cream with a burst of flavor!</h4>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s;"
-        onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-        <img src="https://img.freepik.com/free-photo/top-view-delicious-creamy-ice-cream_23-2150796528.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727740800&semt=ais_hybrid"
-          class="card-img-top" alt="">
-        <div class="card-body">
-          <p class="card-text"><h4>This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</h4></p>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">Indulge in this creamy delight!</h4>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-      <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s;"
-        onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-        <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384"
-          class="card-img-top" alt="">
-        <div class="card-body">
-          <p class="card-text"><h4>This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</h4></p>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://img.freepik.com/free-photo/top-view-delicious-creamy-ice-cream_23-2150796528.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727740800&semt=ais_hybrid"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">A delightful treat for ice cream lovers!</h4>
+            </div>
         </div>
-      </div>
     </div>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">Sorbet: the perfect blend of fruit and chill!</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Cards -->
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">Chocolate fudge brownie ice cream!</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
+            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s"
+                class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-text">Mango sorbet for a tropical taste!</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
   </div>
 </section>
 {% endblock %}
