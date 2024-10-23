@@ -7,17 +7,19 @@
 
 {% block content %}
 <style>
-    .prod-container{
+    .prod-container {
         margin: auto;
-        width: 60%;
-        height: 600px;
+        width: 80%; /* Adjust width for better mobile view */
+        max-width: 1200px; /* Limit max width on larger screens */
         display: flex;
-        justify-content: center;
+        padding: 10px;
+        flex-direction: column; /* Stack items on small screens */
         align-items: center;
     }
-    img{
-        height: 500px;
-        width: auto;
+    .prod-img img {
+        height: auto; /* Make image height auto for responsive scaling */
+        width: 100%; /* Ensure image takes full width on smaller screens */
+        max-height: 500px; /* Limit max height */
         border-radius: 5px;
     }
     .add-to-cart {
@@ -32,27 +34,21 @@
         background-color: #218838; /* Darker green on hover */
     }
 </style>
-
-
-
-
 <div class="prod-container">
     <div class="row align-items-center">
-        <div class="col-6 prod-img">   
-            <img src="{{product.pic.url}}" alt="{{product.name}} image">
+        <div class="col-12 col-md-6 prod-img">   
+            <img src="{{ product.pic.url }}" alt="{{ product.name }} image">
         </div>
-        <div class="col-6 prod-description"> 
+        <div class="col-12 col-md-6 prod-description"> 
             <div>
-                <h2>{{product.name}}</h2>
-                <p><h4>Rs. {{product.price}}</h4></p>
-                <p>{{product.description}}</p>
+                <h2>{{ product.name }}</h2>
+                <h4>Rs. {{ product.price }}</h4>
+                <p>{{ product.description }}</p>
             </div>
-            <button class="btn add-to-cart">Add to Cart</button>
+            
+            <a class="btn btn-warning" href="{% url 'editProd' product.pk %}">Edit Product</a>
+            <a class="btn btn-danger" href="{% url 'del_product' product.pk %}">Delete Product</a>
         </div>
     </div>
 </div>
-
 {% endblock %}
-
-
-

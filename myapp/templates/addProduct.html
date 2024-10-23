@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block title %}
-home
+    Add Product
 {% endblock %}
 
 {% block content %}
 <div class="container my-5">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <br>
-        <input class="btn btn-primary" type="submit" value=" submit ">
+        <button class="btn btn-primary" type="submit">Add Product</button>
     </form>
 </div>
 {% endblock %}

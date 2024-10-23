@@ -2,8 +2,9 @@ from django.shortcuts import render # type: ignore
 from django.http import HttpResponse # type: ignore
 
 from django.template import loader # type: ignore # this module helps load html template
-from django.views.generic import ListView, CreateView   # type: ignore
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Product
+from django.urls import reverse , reverse_lazy
 # Create your views here.
 
 from django import forms # type: ignore
@@ -55,4 +56,20 @@ class AddProduct(CreateView):
     # forms.py
 
 
-
+class EditProduct(UpdateView):
+    model = Product
+    template_name = "EditProduct.html"
+    fields = [
+        'name',
+        'price',
+        'description',
+        'stock',
+        'pic'
+    ]
+    success_url = reverse_lazy('products') 
+    
+class DelProduct(DeleteView):
+    model = Product
+    template_name = "DelProduct.html"
+    success_url = reverse_lazy('products')     
+    
