@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Log in!
+{% endblock %}
+{% block content %}
+<style>
+    .login{
+        height: 300px;
+        display : flex;
+        flex-direction : column;
+        align-items : center;
+        justify-content : center;
+        margin : 2px;
+        a{
+            text-decoration : none;
+        }
+    }
+</style>
+    <div class="container-fluid">
+        <form method="post" enctype="multipart/form-data">
+            <div class="login">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-success" type="submit">Log in</button>
+                <br>
+                <h5>New user click here to <a href="{% url 'register' %}">Register</a></h5>
+            </div>
+        </form>
+    </div>
+{% endblock %}

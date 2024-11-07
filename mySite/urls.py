@@ -14,22 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin 
-from django.urls import path, include 
-from django.conf import settings 
-from django.conf.urls.static import static 
+from django.contrib import admin
+from django.urls import path, include
 
-admin.site.site_header = "Dattatri Bachare"
-admin.site.site_title = "Admin Portal"
-admin.site.index_title = "Welcome to Admin Portal"
+# following two lines are imported to make the media urls functioning inside the development site
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', include('myapp.urls')),
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
-    path('auth/', include('django.contrib.auth.urls'))
-] 
+    path('auth/',include('django.contrib.auth.urls'))
+    
+]
 
 if settings.DEBUG == True:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

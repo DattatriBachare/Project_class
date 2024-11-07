@@ -6,11 +6,12 @@
 
 html, body {
     width: 100%;
+    margin: auto;
     height: 100%;
 }
 
 html {
-    background-color: rgba(2, 1, 1, 0.464);
+    background-color: rgba(2, 34, 161, 0.497);
 }
 
 body {
@@ -56,4 +57,9 @@ main {
 
 .card-body {
     padding: 1rem; /* Adjust padding for card body */
+}
+.cart{
+    margin-left: 4px;
+    padding-left: 5px;
+    color: white;
 }

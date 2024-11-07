@@ -53,7 +53,7 @@ Products
                           <a href="{% url 'p_details' p.pk %}" class="text-decoration-none">
                               <h5 class="card-title mb-0" style="font-size: 1.3rem;">{{ p.name }}</h5>
                           </a>
-                          <h5 class="card-title mb-0" style="font-size: 1.3rem;">Rs. {{ p.price }}</h5>
+                          <h6 class="card-title mb-0" style="font-size: 1.3rem;">Rs. {{ p.price }}</h6>
                       </div>
                       <div class="d-flex align-items-center">
                         <p class="description" id="desc-{{ forloop.counter }}">{{ p.description }}</p>
