@@ -1,5 +1,5 @@
-from django.shortcuts import render # type: ignore
-from django.http import HttpResponse # type: ignore
+from django.shortcuts import render 
+from django.http import HttpResponse
 
 from django.template import loader # type: ignore # this module helps load html template
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -73,3 +73,15 @@ class DelProduct(DeleteView):
     template_name = "DelProduct.html"
     success_url = reverse_lazy('products')     
     
+    
+def searchView(request):
+    query = request.GET.get('q1')
+    results = Product.objects.filter(name__icontains=query) # filtering the products objects according string matching query 
+    # In the SQL => select * from products where name like "%query%"
+    context = {
+        'prods' : results,
+        'query' : query,
+        
+    }
+    template = loader.get_template('search_results.html')
+    return HttpResponse(template.render(context, request))
