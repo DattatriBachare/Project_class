@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    {{ user.username }}'s Cart
+{% endblock %}
+
+{% block content %}
+<style>
+  p {
+    color: black;
+  }
+
+  /* Layout for the cart container */
+  .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;  /* Limit the overall width of the cart container */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Cart Items - Left Side */
+  .cart-items {
+    flex-basis: 70%; /* Take 70% of the width */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Cart Item Styling */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* Cart Item Image */
+  .cart-item-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+
+  /* Cart Item Details */
+  .cart-item-details {
+    flex: 1; /* Take up remaining space */
+  }
+
+  .cart-item-title {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .cart-item-price {
+    font-size: 1.2rem;
+    color: green;
+    margin-bottom: 5px;
+  }
+
+  .cart-item-quantity {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  /* Allow description to wrap to next line */
+  .description {
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Change to normal so text can wrap */
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  /* Cart Summary - Right Side */
+  .cart-summary {
+    flex-basis: 30%; /* Take 30% of the width */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 20px;
+  }
+
+  .total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .btn-action {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    margin-top: 10px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .btn-warning {
+    background-color: #ffc107;
+    color: white;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+
+</style>
+
+<section id="cart">
+  <h1 class="my-4 text-center">Your Cart</h1>
+  <div class="album py-3 bg-body-tertiary">
+    <div class="container-fluid">
+      <!-- Cart Items on Left Side -->
+      <div class="cart-items">
+        {% for item in cart_item %}
+        <div class="cart-item">
+          <!-- Cart Item Image -->
+          <img src="{{ item.product.pic.url }}" alt="{{ item.product.name }}" class="cart-item-img">
+
+          <!-- Cart Item Details -->
+          <div class="cart-item-details">
+            <h5 class="cart-item-title">{{ item.product.name }}</h5>
+            <p class="cart-item-price">Rs. {{ item.product.price }}</p>
+            <p class="cart-item-quantity">Quantity: {{ item.quantity }}</p>
+            <p class="description">{{ item.product.description }}</p>
+            <div class="d-flex justify-content-between">
+              <a href="" class="btn btn-danger ">Remove</a>
+              <a href="" class="btn btn-warning ">+</a>
+              <a href="" class="btn btn-warning ">-</a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+          <p>Your cart is empty</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Cart Summary on Right Side -->
+      <div class="cart-summary">
+        <h4 class="total-price">Total Price: Rs. {{ total_price }}</h4>
+        <a href="" class="btn btn-success btn-action">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
