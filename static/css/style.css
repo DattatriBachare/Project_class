@@ -10,9 +10,7 @@ html, body {
     height: 100%;
 }
 
-html {
-    background-color: rgba(2, 34, 161, 0.497);
-}
+
 
 body {
     overflow-x: hidden; /* Prevent horizontal overflow */
@@ -31,7 +29,7 @@ header {
 
 main {
     .carousel {
-        height: 300px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -63,3 +61,4 @@ main {
     padding-left: 5px;
     color: white;
 }
+

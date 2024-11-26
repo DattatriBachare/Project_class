@@ -2,179 +2,185 @@
 {% load static %}
 
 {% block title %}
-home
+Home
 {% endblock %}
 
 {% block content %}
-<section id="home-carousel" style="background-color: #1E3E40; padding-top: 2px;">
+<section id="home-carousel" class="carousel-container" style="background-color: #1E3E40;">
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'images/carousel/1.jpg' %}" class="d-block w-100 carousel-img" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/2.jpg' %}" class="d-block w-100 carousel-img" alt="...">
-        </div>
-        {% comment %} <div class="carousel-item">
-          <img src="{% static 'images/carousel/3.jpg' %}" class="d-block w-100 carousel-img" alt="...">
-        </div> {% endcomment %}
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/4.jpg' %}" class="d-block w-100 carousel-img" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/5.jpg' %}" class="d-block w-100 carousel-img" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/6.jpg' %}" class="d-block w-100 carousel-img" alt="...">
-        </div>
-      </div>
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </section>
-  
-  <style>
-    /* Make the carousel responsive */
-    #carouselExample {
-      max-width: 100%; /* Ensure the carousel is responsive */
-      margin: auto;
-    }
-  
-    /* Ensures the images cover the entire carousel container while maintaining aspect ratio */
-    .carousel-img {
-      width: 100%; /* Ensure the image width fills the carousel */
-      height: 100%; /* Ensure the image height fills the carousel */
-      object-fit: cover; /* Ensures the image covers the container while preserving aspect ratio */
-    }
-  
-    /* Adjust carousel controls for mobile screens */
-    .carousel-control-prev,
-    .carousel-control-next {
-      filter: invert(100%); /* Inverts the color of the carousel controls for better visibility on dark backgrounds */
-    }
-  
-    /* Optional: Adjust the padding and margins for better spacing */
-    #home-carousel {
-      padding: 0;
-    }
-  
-    /* Optional: Define max height for mobile devices */
-    @media (max-width: 768px) {
-      #carouselExample {
-        height: 400px; /* Adjust height for smaller screens */
-      }
-  
-      .carousel-img {
-        object-fit: contain; /* Prevent image from getting cropped */
-      }
-    }
-  
-    /* Optional: Adjust carousel height for larger screens */
-    @media (min-width: 769px) {
-      #carouselExample {
-        height: 700px; /* Set a larger height for desktop screens */
-      }
-    }
-  </style>
-  
-  <div class="row mx-1 px-1" >
-    <div class="col-12 col-md-6 col-lg-3 mb-4"> <!-- Adjusted to col-lg-3 for four cards in a row -->
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://cdn.theatlantic.com/thumbor/e1x2sKlZwUTKZ08vd3e-8q38nO4=/438x0:1563x1125/1080x1080/media/img/2023/04/0523_WEL_Johns_Ice_Cream_c16X9/original.png"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">A delightful treat for ice cream lovers!</h4>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/carousel/1.jpg' %}" class="d-block w-100 carousel-img" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel/2.jpg' %}" class="d-block w-100 carousel-img" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel/4.jpg' %}" class="d-block w-100 carousel-img" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel/5.jpg' %}" class="d-block w-100 carousel-img" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel/6.jpg' %}" class="d-block w-100 carousel-img" alt="...">
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/08/Ice-cream-sundae-hero-11.jpg"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">A delicious sundae brings joy to your day!</h4>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2y-naalQNvOZ6BkhBgZwbsWBsJku3xK6XRA&s"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">Refreshing ice cream with a burst of flavor!</h4>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">Indulge in this full of creamy delight one!</h4>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://img.freepik.com/free-photo/top-view-delicious-creamy-ice-cream_23-2150796528.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727740800&semt=ais_hybrid"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">A delightful treat for ice cream lovers!</h4>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">Sorbet: the perfect blend of fruit!</h4>
-            </div>
-        </div>
-    </div>
-
-    <!-- New Cards -->
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">Chocolate fudge brownie ice cream!</h4>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="card shadow-sm" style="transform: scale(0.8); transition: transform 0.4s; width: 90%;"
-            onmouseover="this.style.transform='scale(0.9)'" onmouseout="this.style.transform='scale(0.8)'">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s"
-                class="card-img-top" alt="">
-            <div class="card-body">
-                <h4 class="card-text">Mango sorbet for a tropical in the taste!</h4>
-            </div>
-        </div>
-    </div>
-</div>
-
-  </div>
 </section>
+
+<!-- Cards Section -->
+<section class="product-cards py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Product Cards -->
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://cdn.theatlantic.com/thumbor/e1x2sKlZwUTKZ08vd3e-8q38nO4=/438x0:1563x1125/1080x1080/media/img/2023/04/0523_WEL_Johns_Ice_Cream_c16X9/original.png" class="card-img-top" alt="Ice Cream">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">A delightful treat for ice cream lovers!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/08/Ice-cream-sundae-hero-11.jpg" class="card-img-top" alt="Ice Cream Sundae">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">A delicious sundae brings joy to you and your family.!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2y-naalQNvOZ6BkhBgZwbsWBsJku3xK6XRA&s" class="card-img-top" alt="Refreshing Ice Cream">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">Refreshing ice cream with a burst of flavor!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s" class="card-img-top" alt="Creamy Ice Cream">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">Indulge in this full of creamy delight one!</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://img.freepik.com/free-photo/top-view-delicious-creamy-ice-cream_23-2150796528.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727740800&semt=ais_hybrid" class="card-img-top" alt="Top View of Ice Cream">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">A delightful treat for ice cream lovers!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384" class="card-img-top" alt="Sorbet">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">Sorbet: the perfect blend of fruit tasty</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Cards -->
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://c.ndtvimg.com/2023-02/gb155me8_sorbet_625x300_17_February_23.jpg?im=FeatureCrop,algorithm=dnn,width=384,height=384" class="card-img-top" alt="Chocolate Fudge Brownie">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">Chocolate fudge brownie ice cream!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card shadow-sm card-hover">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8xteaM2NMaN2UGF73BqoL8VcdoOkceSGlg&s" class="card-img-top" alt="Mango Sorbet">
+                    <div class="card-body">
+                        <a style="text-decoration: none; color: black;" href="http://127.0.0.1:8000/products">Mango sorbet for a tropical taste! is here</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}
+
+<!-- Add custom styles for better design -->
+<style>
+    /* Carousel image styling */
+    .carousel-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Hover effect on cards */
+    .card-hover {
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+    }
+
+    .card-hover:hover {
+        transform: scale(1);
+    }
+
+    /* Ensuring all cards have the same height */
+    .card-body {
+        height: 200px; /* Fixed height to prevent varying card heights */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Ensuring image size stays consistent */
+    .card-img-top {
+        width: 100%;
+        height: 200px; /* Set all images to have a uniform height */
+        object-fit: cover;
+    }
+
+    /* Adjust card layout for mobile and larger screens */
+    .product-cards .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    /* Card layout responsive design */
+    @media (max-width: 768px) {
+        .col-lg-3 {
+            flex: 0 0 100%; /* Stack cards in one column on smaller screens */
+        }
+    }
+
+    /* Custom section spacing */
+    .product-cards {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    /* Optional: Add margin between carousel and cards */
+    #home-carousel {
+        margin-bottom: 30px;
+    }
+
+    /* Ensures that the background adjusts its height based on content */
+    .carousel-container {
+        min-height: 500px; /* Ensures a minimum height for the carousel */
+    }
+</style>
