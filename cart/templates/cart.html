@@ -243,10 +243,11 @@
     <!-- Cart Summary Section -->
     <div class="cart-summary">
         <div class="total-price">
-            <strong>Total : Rs. <span id="overall-total">{{ total_price }}</span></strong>
+            <strong>Grand total : <span id="overall-total">{{ total_price }} Rs. </span></strong>
         </div>
         <button class="btn btn-primary">Proceed to Checkout</button>
     </div>
+    
     {% else %}
     <p>Your cart is empty.</p>
     {% endif %}
