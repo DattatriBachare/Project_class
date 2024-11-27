@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    My Orders
+{% endblock %}
+
+{% block content %}
+    <style>
+        /* General Body and Font Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 12px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Order Summary Styling */
+        .order-summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .order-summary p {
+            margin-bottom: 10px;
+        }
+
+        .order-summary p strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Heading Styles */
+        .order-summary h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Optional Button Styling */
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <div class="order-summary">
+        <h1>Order #{{ order.id }} Details</h1>
+        <p><strong>Order Date:</strong> {{ order.order_date }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
+    </div>
+
+    <h2>Products</h2>
+    <ul>
+        {% for detail in order.order_details.all %}
+            <li>
+                {{ detail.cart_item.product.name }} - Quantity: {{ detail.quantity }} - Price: ₹{{ detail.price }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Example of a Button (if you plan to add one) -->
+    <a href="#" class="btn">View Order History</a>
+{% endblock %}

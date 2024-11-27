@@ -150,6 +150,9 @@
   .btn-danger:hover {
     background-color: #c82333;
   }
+  .btn-Danger{
+    margin-left: 5px;
+  }
 
   .btn-warning {
     background-color: #ffc107;
@@ -235,6 +238,7 @@
                 <div class="cart-item-total">
                     = Rs. <span id="total-price-{{ item.id }}">{{ item.get_total_price }}</span>
                 </div>
+                <a href="{% url 'cart:remove_from_cart' item.id %}" class="btn btn-Danger">Remove</a>
             </li>
             {% endfor %}
         </ul>
@@ -243,10 +247,15 @@
     <!-- Cart Summary Section -->
     <div class="cart-summary">
         <div class="total-price">
-            <strong>Grand total : <span id="overall-total">{{ total_price }} Rs. </span></strong>
+            <strong>Grand total : <span id="overall-total">{{ total_price }} </span> Rs. </strong>
         </div>
-        <button class="btn btn-primary">Proceed to Checkout</button>
-    </div>
+        {% if cart_items %}
+    <form method="post" action="{% url 'orders:create_order' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+    </form>
+{% endif %}
+</div>
     
     {% else %}
     <p>Your cart is empty.</p>

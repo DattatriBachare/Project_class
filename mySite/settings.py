@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'authentication',
-    'cart'
+    'cart',
+    'orders',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -138,5 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #  configuration for login and logout redirect urls for authentication
+LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL = 'homepage'
+
+RAZORPAY_KEY_ID = "rzp_test_9P9O3QEVgL1NOJ"  # Replace with your Key ID
+RAZORPAY_KEY_SECRET = "xFG0Iltj7NWeH80gYmLvwTEg"

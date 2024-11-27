@@ -45,9 +45,12 @@
                 <h2>Rs. {{ product.price }}</h2>
                 <p>{{ product.description }}</p>
             </div>
-            
+            {% if user.is_staff %}
             <a class="btn btn-warning" href="{% url 'editProd' product.pk %}">Edit Product</a>
             <a class="btn btn-danger" href="{% url 'del_product' product.pk %}">Delete Product</a>
+            {% else %}
+            <a class="btn btn-primary" href="{% url 'cart:add_to_cart' product.id %}">Add to Cart</a>
+            {% endif %}
         </div>
     </div>
 </div>
