@@ -2,18 +2,88 @@
 {% load static %}
 
 {% block title %}
-   <!-- Fill title here -->
-    My Orders
+   My Orders
 {% endblock %}
 
 {% block content %}
 <!-- Fill content -->
 <h1>Your Order History</h1>
+
+<style>
+    /* Basic styling for the page */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .li {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+   .rmv{
+        background-color: #d9534f;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        padding : 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 5px;
+        margin-left: 22px;
+    }
+    .a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .a:hover {
+        text-decoration: underline;
+    }
+
+    .order-details {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .order-total {
+        font-weight: bold;
+        color: #28a745;
+    }
+</style>
+
 <ul>
     {% for order in orders %}
-        <li>
-            Order #{{ order.id }} - Total: ₹{{ order.total_amount }} - Status: {{ order.status }}
-            <a href="{% url 'orders:order_detail' order.id %}">View Details</a>
+        <li class="li">
+            <div class="order-details">
+                Order #{{ order.id }} - 
+                <span class="order-total">₹{{ order.total_amount }}</span> - 
+                Status: {{ order.status }}
+            </div>
+            <a class="a" href="{% url 'orders:order_detail' order.id %}">View Details</a>
         </li>
     {% endfor %}
 </ul>

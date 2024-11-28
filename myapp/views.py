@@ -5,6 +5,7 @@ from django.template import loader # type: ignore # this module helps load html 
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Product
 from django.urls import reverse , reverse_lazy
+
 # Create your views here.
 
 from django import forms # type: ignore
@@ -34,6 +35,7 @@ def about(request):
     # return HttpResponse("Hi, this is my about page !!!")
     template = loader.get_template('about.html')
     return HttpResponse(template.render())
+
 
 def addProduct(request):
     # return HttpResponse("Hi, this is my adding product page !!!")
@@ -84,4 +86,11 @@ def searchView(request):
         
     }
     template = loader.get_template('search_results.html')
+    return HttpResponse(template.render(context, request))
+
+
+def about(request):
+    context = {        
+    }
+    template = loader.get_template('about.html')
     return HttpResponse(template.render(context, request))

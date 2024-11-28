@@ -94,4 +94,11 @@
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
         </form>
     </div>
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function (event) {
+            var message = "Are you sure you want to leave? Your payment process may not be completed.";
+            event.returnValue = message;
+            return message;
+        });
+    </script>
 {% endblock %}

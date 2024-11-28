@@ -58,12 +58,14 @@ Products
                       <div class="d-flex align-items-center">
                         <p class="description" id="desc-{{ forloop.counter }}">{{ p.description }}</p>
                       </div>
+                      {% if not user.is_staff %}
                       <div>
                         <a href="{% url 'cart:add_to_cart' p.id %}" class="btn btn-primary rounded-pill px-3">Add to cart</a>
                           {% comment %} <form action="{% url 'cart:view_cart' p.id %}" method="post">
                             <button href="{% url 'cart:view_cart' p.id %}" class="btn btn-primary rounded-pill px-3" type="button">Add to cart</button>
                           </form> {% endcomment %}
                       </div>
+                      {% endif %}
                   </div>
               </div>
           </div>
@@ -72,6 +74,7 @@ Products
       </div>
     </div>
   </div>
+  <br><br><br>
 </section>
 
 {% endblock %}
