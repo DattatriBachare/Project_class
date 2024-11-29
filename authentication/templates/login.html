@@ -1,31 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}
     Log in!
 {% endblock %}
+
 {% block content %}
-<style>
-    .login{
-        height: 300px;
-        display : flex;
-        flex-direction : column;
-        align-items : center;
-        justify-content : center;
-        margin : 2px;
-        a{
-            text-decoration : none;
-        }
-    }
-</style>
-    <div class="container-fluid">
-        <form method="post" enctype="multipart/form-data">
-            <div class="login">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-success" type="submit">Log in</button>
-                <br>
-                <h5>New user click here to <a href="{% url 'register' %}">Register</a></h5>
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 90vh; background-color: white;">
+        <div class="card shadow-lg border-0" style="width: 400px; background-color: #00B1D2FF; color: black;">
+            <div class="card-header text-center">
+                <h4>Log in</h4>
             </div>
-        </form>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Log in</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <a class="link text-white" href="{% url 'password_reset' %}">Forget password?</a>
+            </div>
+        </div>
     </div>
 {% endblock %}

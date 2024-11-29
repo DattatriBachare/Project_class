@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
 from cart.models import CartItem
-from .models import Orders, OrderDetails
+from .models import Order, OrderDetails, Address
+from .forms import AddressForm
+
 
 @login_required
 def create_order(request):
@@ -18,7 +20,7 @@ def create_order(request):
     total_amount = sum(item.quantity * item.product.price for item in cart_items)
 
     # Create an order record
-    order = Orders.objects.create(
+    order = Order.objects.create(
         user=user,
         total_amount=total_amount,
         order_date=now(),
@@ -29,7 +31,7 @@ def create_order(request):
     for item in cart_items:
         OrderDetails.objects.create(
             order=order,
-            cart_item=item,
+            order_item=item.product,
             quantity=item.quantity,
             price=item.product.price * item.quantity
         )
@@ -41,17 +43,57 @@ def create_order(request):
     return redirect('payment:create_razorpay_order', order_id=order.id)
 
 
-@login_required
 def order_history(request):
-    """Display a list of all orders for the logged-in user."""
-    user = request.user
-    orders = Orders.objects.filter(user=user).order_by('-order_date')
-    return render(request, 'order_history.html', {'orders': orders})
+    if not request.user.is_authenticated:
+        return redirect('login')
+    orders = Order.objects.filter(user=request.user).prefetch_related('order_details').order_by('-order_date')
+
+    context =  {
+        'orders': orders
+        }
+    return render(request, 'order_history.html', context)
 
 
 @login_required
 def order_detail(request, order_id):
     """Display details of a specific order."""
     user = request.user
-    order = get_object_or_404(Orders, id=order_id, user=user)
+    order = get_object_or_404(Order, id=order_id, user=user)
     return render(request, 'order_detail.html', {'order': order})
+
+
+
+@login_required
+def add_address(request):
+    form = AddressForm()
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            address = form.save(commit=False)
+            address.user = request.user
+            address.save()
+            return redirect('profile')  # Redirect to profile or a page listing addresses
+    return render(request, 'add_address.html', {'form': form})
+
+
+@login_required
+def select_address_for_order(request, order_id):
+    """Select the address for the order."""
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    
+    # Fetch all addresses related to the user
+    addresses = Address.objects.filter(user=request.user)
+
+    if request.method == 'POST':
+        address_id = request.POST.get('address')
+        
+        if address_id:
+            # Fetch the selected address and assign it to the order
+            address = get_object_or_404(Address, id=address_id, user=request.user)
+            order.address = address
+            order.save()
+
+            # Redirect to order history after the address is selected
+            return redirect('order_history')
+
+    return render(request, 'select_address.html', {'order': order, 'addresses': addresses})

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Address{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Select Address for Order #{{ order.id }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="address">Choose an address:</label>
+            <select id="address" name="address" class="form-control">
+                {% for address in addresses %}
+                    <option value="{{ address.id }}">
+                        {{ address.address_line1 }}, {{ address.city }}, {{ address.state }}, {{ address.zip_code }}, {{ address.country }}
+                    </option>
+                {% empty %}
+                    <option>No addresses available</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Select Address</button>
+    </form>
+</div>
+{% endblock %}

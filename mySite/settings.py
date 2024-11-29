@@ -144,5 +144,12 @@ LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL = 'homepage'
 
-RAZORPAY_KEY_ID = "rzp_test_9P9O3QEVgL1NOJ"  # Replace with your Key ID
-RAZORPAY_KEY_SECRET = "xFG0Iltj7NWeH80gYmLvwTEg"
+RAZORPAY_KEY_ID ="rzp_test_IvhcHeoNovUUfT" # Replace with your Key ID
+RAZORPAY_KEY_SECRET ="6gzyH5ZmRLlgSFOzWjzrUgd7"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP host
+EMAIL_PORT = 25  # Typically 587 for TLS, or 465 for SSL
+EMAIL_USE_TLS = True  # For security (use SSL if using 465 port)
+EMAIL_HOST_USER = 'dattatri1998@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'Dattu@123'  # Your email password (use App password if 2FA enabled)
